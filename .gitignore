@@ -1,0 +1,5 @@
+# Goland settings
+.idea/
+
+# Data
+data.tar
