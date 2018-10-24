@@ -1,0 +1,15 @@
+syntax = "proto3";
+package api;
+
+message DataMessage {
+    string name = 1;
+    string email = 2;
+    string mobile = 3;
+}
+message StatusMessage {
+    bool ok = 1;
+}
+
+service DataFlow {
+    rpc SendData (DataMessage) returns (StatusMessage) {}
+}

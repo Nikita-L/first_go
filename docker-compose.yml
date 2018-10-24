@@ -6,21 +6,24 @@ services:
     expose:
       - "8000"
     volumes:
-      - .:/go/src/parser
+      - ./parser:/go/src/parser
+      - ./api:/go/src/api
     deploy:
       resources:
         limits:
           memory: 200M
+    depends_on:
+      - centre
 
   centre:
     build: ./centre
     expose:
       - "8080"
     volumes:
-      - .:/go/src/centre
+      - ./centre:/go/src/centre
+      - ./api:/go/src/api
     depends_on:
       - db_centre
-
 
   db_centre:
     image: postgres
