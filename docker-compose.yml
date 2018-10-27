@@ -8,10 +8,6 @@ services:
     volumes:
       - ./parser:/go/src/parser
       - ./api:/go/src/api
-    deploy:
-      resources:
-        limits:
-          memory: 200M
     depends_on:
       - centre
 
@@ -28,6 +24,6 @@ services:
   db_centre:
     image: postgres
     volumes:
-      - ./centre/db_init.sql:/docker-entrypoint-initdb.d/db_init.sql
+      - ./centre/db_init.sh:/docker-entrypoint-initdb.d/db_init.sh
     expose:
       - "5432"

@@ -57,7 +57,7 @@ func main() {
 		}
 		cleanMobile := reg.ReplaceAllString(line[3], "")
 
-		if len(cleanMobile) > 10 && len(cleanMobile) < 3 {
+		if len(cleanMobile) > 11 || len(cleanMobile) < 3 {
 			log.Printf("Bad mobile number for user %s, %s", line[1], cleanMobile)
 			continue
 		}
